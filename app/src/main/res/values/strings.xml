@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Lamma</string>
+    <string name="sample_text">SHITTY TEST</string>
+    <string name="action_settings">Settings</string>
+</resources>

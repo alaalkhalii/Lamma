@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "556640685151",
+    "firebase_url": "https://lamma-557e5.firebaseio.com",
+    "project_id": "lamma-557e5",
+    "storage_bucket": "lamma-557e5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556640685151:android:4cf3911b393e124918dfea",
+        "android_client_info": {
+          "package_name": "com.example.lamma"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556640685151-jpbdjvs92rltkt4kthfeb00krvqa1kol.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.lamma",
+            "certificate_hash": "fd99bf021f55f50b278f481d462c93d0610e29e1"
+          }
+        },
+        {
+          "client_id": "556640685151-dqp2dm8fnfubdu1ckidtdgm974igi312.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMhMM092TY8aAoBubY0ezLrgXmVnlv4Qs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556640685151-dqp2dm8fnfubdu1ckidtdgm974igi312.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
