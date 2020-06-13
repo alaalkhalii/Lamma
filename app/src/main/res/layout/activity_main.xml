@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/White"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        >
 
 
 
@@ -22,9 +22,9 @@
             android:background="@color/White"
             app:logo="@drawable/lammalogo"
 
-            android:paddingStart="60dp"
+            android:paddingStart="100dp"
             app:layout_scrollFlags="scroll|enterAlways"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+          />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -32,18 +32,6 @@
            android:background="@color/gray3"
         />
 
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <Button
-                android:id="@+id/add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="add"
-                />
-
-        </RelativeLayout>
 
 
         <com.google.android.material.tabs.TabLayout

@@ -64,7 +64,7 @@ public class addMovie extends AppCompatActivity {
         //set the action bar to OUR toolbar
 
         setSupportActionBar(mMainToolbar);
-        getSupportActionBar().setTitle("Adding News");
+        getSupportActionBar().setTitle("Adding Movies/Tv series");
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
 

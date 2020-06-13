@@ -10,6 +10,8 @@ import android.os.Bundle;
 // import android.support.v7.app.AppCompatActivity;
 // import android.support.v7.widget.Toolbar;
 
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout;
         ViewPager mViewPager;
-        Button addMov;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
             setSupportActionBar(toolbar);
             tabLayout=findViewById(R.id.tabs);
             mViewPager=findViewById(R.id.viewPager);
-            addMov= findViewById(R.id.add);
 
             tabLayout.addTab(tabLayout.newTab().setText("Movie"));
             tabLayout.addTab(tabLayout.newTab().setText("Series"));
@@ -49,15 +49,35 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-            addMov.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent x = new Intent(MainActivity.this,addMovie.class);
-                    startActivity(x);
-                }
-            });
-
-
         }
+    // Connecting the main menu to main activity
+    @Override
+    public boolean onCreateOptionsMenu(Menu m) {
+        getMenuInflater().inflate(R.menu.menu_main,m);
+        return true;
+    }
+    //actions happens when Items of the menu are selected
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.AddShowItem:
+                Intent profileIntent = new Intent(getApplicationContext(), addMovie.class);
+                startActivity(profileIntent);
+                return true;
+            case R.id.profileItem:
+               // Intent aboutIntent = new Intent(getApplicationContext(), Profile.class);
+               // startActivity(aboutIntent);
+                return true;
+            case R.id.WatchListItem:
+                // Intent aboutIntent = new Intent(getApplicationContext(), WatchList.class);
+                // startActivity(aboutIntent);
+                return true;
+            case R.id.SearchItem:
+                return true;
+
+            default:
+                return false;
+        }
+    }
     }
 

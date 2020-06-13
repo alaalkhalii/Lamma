@@ -25,21 +25,13 @@ public class FragmentMovies extends Fragment {
 
     RecyclerView recyclerView;
     RecyclerView secondRecyclerView;
-    ArrayList<String> source;
-    ArrayList<Integer> images;
     private DatabaseReference mDatabaseRef =  FirebaseDatabase.getInstance().getReference();;
     private List<Upload> uploadList=new ArrayList<>();
 
-    // Layout Manager
+    // Layout Manager, adapter class object, Linear Layout Manager
     RecyclerView.LayoutManager RecyclerViewLayoutManager;
-
-    // adapter class object
     Adapter adapter;
 
-    // Linear Layout Manager
-
-    View ChildView;
-    int RecyclerViewItemPosition;
 
 
     @Nullable
@@ -48,62 +40,16 @@ public class FragmentMovies extends Fragment {
         View rootView = inflater.inflate(
                 R.layout.fragment_m, container, false);
         return rootView;
-
-
-
-
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        recyclerView
-                = view.findViewById(
-                R.id.firstRecyclerview);
+        recyclerView = view.findViewById(R.id.firstRecyclerview);
+        secondRecyclerView = view.findViewById(R.id.secondRecyclerview);
 
-
-        // Adding items to RecyclerView.
-             // AddItemsToRecyclerViewArrayList();
-            //AddImagesToRecyclerViewArrayList();
         usingFirebaseDatabase();
-
-
-
-//-------------------------- Second ------------------------
-
-        secondRecyclerView
-                = view.findViewById(
-                R.id.secondRecyclerview);
-
-    }
-
-
-    // Function to add items in RecyclerView.
-    public void AddItemsToRecyclerViewArrayList()
-    {
-        // Adding items to ArrayList
-        source = new ArrayList<>();
-        source.add("Joker");
-        source.add("AquaMan");
-        source.add("Avengers");
-        source.add("site");
-        source.add("for");
-        source.add("interview");
-        source.add("preparation");
-    }
-
-    public void AddImagesToRecyclerViewArrayList()
-    {
-        // Adding images to ArrayList
-        images = new ArrayList<>();
-        images.add(R.drawable.joker);
-        images.add(R.drawable.aquaman);
-        images.add(R.drawable.avengers);
-        images.add(R.drawable.joker);
-        images.add(R.drawable.aquaman);
-        images.add(R.drawable.avengers);
-        images.add(R.drawable.avengers);
     }
 
     private void usingFirebaseDatabase() {
@@ -120,12 +66,10 @@ public class FragmentMovies extends Fragment {
                                 uploadList.add(model);
                             }
 
-                            // calling constructor of adapter
-                            // with source list as a parameter
+                            // calling constructor of adapter with source list as a parameter
                             adapter = new Adapter(getContext(),uploadList);
 
-                            // Set Horizontal Layout Manager
-                            // for Recycler view
+                            // Set Horizontal Layout Manager for Recycler view
 
                             LinearLayoutManager HorizontalLayout = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
                             LinearLayoutManager HorizontalLayout2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -138,13 +82,13 @@ public class FragmentMovies extends Fragment {
 
 
                         } else {
-                            Toast.makeText(getContext(), "No images in firebase", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "No Movies found", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Toast.makeText(getContext(), "NO images found \n" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "NO Movies found \n" + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }
