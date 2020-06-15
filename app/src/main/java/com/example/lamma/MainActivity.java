@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
     // Connecting the main menu to main activity
     @Override
     public boolean onCreateOptionsMenu(Menu m) {
-        getMenuInflater().inflate(R.menu.menu_main,m);
+        getMenuInflater().inflate(R.menu.menu2_main,m);
         return true;
     }
     //actions happens when Items of the menu are selected
