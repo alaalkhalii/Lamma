@@ -27,8 +27,144 @@
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_margin="15dp"
+        android:elevation="1dp"
+        android:background="@drawable/gradient_background">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="@color/White"
+            android:layout_marginTop="30dp"
+            android:textSize="20dp"
+            android:layout_marginStart="40dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="300dp"
+            android:src="@drawable/emailicon"
+
+            />
+
+        <EditText
+            android:id="@+id/EmailEditTxt"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="70dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:background="@drawable/whitetrancp"
+            android:padding="8dp"
+            android:textColor="@color/White"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textColor="@color/White"
+            android:layout_marginTop="140dp"
+            android:textSize="20dp"
+            android:layout_marginStart="40dp"
+            />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="140dp"
+            android:layout_marginStart="300dp"
+            android:src="@drawable/passicon"
+
+            />
+
+        <EditText
+            android:id="@+id/PasswordEditTxt"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="180dp"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:background="@drawable/whitetrancp"
+            android:padding="8dp"
+            android:ems="10"
+            android:textColor="@color/White"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:id="@+id/forgetPassBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="250dp"
+            android:background="@drawable/background_white_button"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:layout_marginStart="188dp"
+            android:text="Forget Password?"
+            android:textAllCaps="false"
+            android:textColor="@color/gray5"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/LoginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Login"
+        android:textSize="22sp"
+        android:textColor="@color/White"
+        android:paddingStart="90dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="90dp"
+        android:paddingBottom="10dp"
+        android:fontFamily="sans-serif-condensed-medium"
         android:background="@drawable/gradient_background"
+        android:layout_marginTop="70dp"
+         />
+
+    <ProgressBar
+        android:id="@+id/saveAndSendBtnProgressBar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="10dp"
         />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        >
+        <TextView
+            android:id="@+id/registerTxtV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account ?"
+            android:textColor="@color/gray5"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/toSignUpTxtV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SignUp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginStart="8dp"
+            />
+
+    </LinearLayout>
 
 
 
