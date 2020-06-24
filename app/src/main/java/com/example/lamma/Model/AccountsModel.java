@@ -1,9 +1,8 @@
-package com.example.lamma;
+package com.example.lamma.Model;
 
 public class AccountsModel {
     private String mEmail;
     private String mName;
-    private String mPhone;
     private String mUID;
 
     public AccountsModel() {
@@ -17,10 +16,9 @@ public class AccountsModel {
         this.mUID = mUID;
     }
 
-    public AccountsModel(String email, String name, String phone, String id) {
+    public AccountsModel(String email, String name, String id) {
         mEmail = email;
         mName = name;
-        mPhone = phone;
         mUID=id;
     }
 
@@ -40,11 +38,4 @@ public class AccountsModel {
         mName = name;
     }
 
-    public String getPhone() {
-        return mPhone;
-    }
-
-    public void setPhone(String phone) {
-        mPhone = phone;
-    }
 }

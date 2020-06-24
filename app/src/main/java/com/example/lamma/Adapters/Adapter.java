@@ -1,4 +1,4 @@
-package com.example.lamma;
+package com.example.lamma.Adapters;
 
         import android.content.Context;
         import android.view.View;
@@ -8,9 +8,10 @@ package com.example.lamma;
         import android.view.LayoutInflater;
         import java.util.List;
         import androidx.recyclerview.widget.RecyclerView;
-        import androidx.recyclerview.*;
 
 
+        import com.example.lamma.R;
+        import com.example.lamma.Model.Upload;
         import com.squareup.picasso.Picasso;
 
 public class Adapter

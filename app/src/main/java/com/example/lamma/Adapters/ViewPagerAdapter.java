@@ -1,8 +1,11 @@
-package com.example.lamma;
+package com.example.lamma.Adapters;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentManager;
+
+import com.example.lamma.Fragment.FragmentMovies;
+import com.example.lamma.Fragment.FragmentSeries;
 
 public class ViewPagerAdapter extends FragmentPagerAdapter {
 

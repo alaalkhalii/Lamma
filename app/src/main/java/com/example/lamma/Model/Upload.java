@@ -1,4 +1,4 @@
-package com.example.lamma;
+package com.example.lamma.Model;
 
 public class Upload {
     private String mName;

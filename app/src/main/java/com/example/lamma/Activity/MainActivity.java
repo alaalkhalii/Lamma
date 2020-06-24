@@ -1,4 +1,4 @@
-package com.example.lamma;
+package com.example.lamma.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,16 +12,13 @@ import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.HorizontalScrollView;
-import com.google.android.material.floatingactionbutton.*;
-import com.google.android.material.snackbar.*;
+
+import com.example.lamma.Adapters.ViewPagerAdapter;
+import com.example.lamma.R;
 import com.google.android.material.tabs.TabLayout;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.appcompat.widget.Toolbar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 public class MainActivity extends AppCompatActivity {
@@ -61,23 +58,45 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.AddShowItem:
-                Intent profileIntent = new Intent(getApplicationContext(), addMovie.class);
-                startActivity(profileIntent);
+                if (isUserLoggedIn()) {
+
+                    Intent x = new Intent(getApplicationContext(), MovieOrSeriesActivity.class);
+                    startActivity(x);
+                }else{
+                    Intent y = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(y);
+                }
                 return true;
             case R.id.profileItem:
-               // Intent aboutIntent = new Intent(getApplicationContext(), Profile.class);
-               // startActivity(aboutIntent);
+
+                if (isUserLoggedIn()){
+                   Intent z = new Intent(getApplicationContext(), ProfileActivity.class);
+                   startActivity(z);
+                }else{
+                    Intent y = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(y);
+                }
                 return true;
             case R.id.WatchListItem:
-                // Intent aboutIntent = new Intent(getApplicationContext(), WatchList.class);
-                // startActivity(aboutIntent);
+                if (isUserLoggedIn()) {
+                    Intent a = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(a);
+                }else {
+                    Intent y = new Intent(getApplicationContext(), LoginActivity.class);
+                    startActivity(y);
+                }
                 return true;
             case R.id.SearchItem:
                 return true;
-
             default:
                 return false;
         }
     }
+
+    private boolean isUserLoggedIn(){
+        if(FirebaseAuth.getInstance().getCurrentUser()!= null)
+            return true;
+        return false;
     }
+}
 

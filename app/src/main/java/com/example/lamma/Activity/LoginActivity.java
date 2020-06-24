@@ -1,4 +1,4 @@
-package com.example.lamma;
+package com.example.lamma.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.lamma.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -46,6 +47,14 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mContext=LoginActivity.this;
 
+        mSignupTxtV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent x = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(x);
+            }
+        });
+
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                                 mProgressBar.setVisibility(View.GONE);
                                 mLoginButton.setVisibility(View.VISIBLE);
 
-                                    Intent x = new Intent(LoginActivity.this,MainActivity.class);
+                                    Intent x = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(x);
                             }else {
                                 mProgressBar.setVisibility(View.GONE);

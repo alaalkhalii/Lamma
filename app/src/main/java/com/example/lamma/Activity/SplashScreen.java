@@ -1,4 +1,4 @@
-package com.example.lamma;
+package com.example.lamma.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.lamma.R;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -23,7 +25,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent x = new Intent(mContext,MainActivity.class);
+                Intent x = new Intent(mContext, MainActivity.class);
                 startActivity(x);
                 finish();
             }
