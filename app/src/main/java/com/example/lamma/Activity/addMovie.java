@@ -50,8 +50,8 @@ public class addMovie extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_movie);
 
-        mChooseImage=findViewById(R.id.chooseImageButton);
-        mUploadBtn = findViewById(R.id.UploadButton);
+        mChooseImage=findViewById(R.id.UploadPosterBtn);
+        mUploadBtn = findViewById(R.id.AddMovieBtn);
         mEditTextMovieName = findViewById(R.id.MovieNameEditTxt);
         mImageView = findViewById(R.id.imageview);
         mProgressBar = findViewById(R.id.progress_bar);
