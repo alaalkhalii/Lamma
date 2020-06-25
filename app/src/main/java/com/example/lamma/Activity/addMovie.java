@@ -35,15 +35,11 @@ public class addMovie extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button mChooseImage;
-    private Button mUploadImage;
-    private EditText mEditTextFileName;
+    private Button mUploadBtn;
+    private EditText mEditTextMovieName;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Uri mImageUri;
-    private Toolbar mMainToolbar;
-
-
-
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
@@ -55,15 +51,10 @@ public class addMovie extends AppCompatActivity {
         setContentView(R.layout.activity_add_movie);
 
         mChooseImage=findViewById(R.id.chooseImageButton);
-        mUploadImage = findViewById(R.id.UploadButton);
-        mEditTextFileName = findViewById(R.id.fileNameEditText);
+        mUploadBtn = findViewById(R.id.UploadButton);
+        mEditTextMovieName = findViewById(R.id.MovieNameEditTxt);
         mImageView = findViewById(R.id.imageview);
         mProgressBar = findViewById(R.id.progress_bar);
-        mMainToolbar = findViewById(R.id.toolbar);
-        //set the action bar to OUR toolbar
-
-        setSupportActionBar(mMainToolbar);
-        getSupportActionBar().setTitle("Adding Movies/Tv series");
 
         mStorageRef = FirebaseStorage.getInstance().getReference("uploads");
 
@@ -76,7 +67,7 @@ public class addMovie extends AppCompatActivity {
             }
         });
 
-        mUploadImage.setOnClickListener(new View.OnClickListener() {
+        mUploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(mUploadTask != null && mUploadTask.isInProgress()){
@@ -116,7 +107,7 @@ public class addMovie extends AppCompatActivity {
     private void reportFile() {
         if (mImageUri != null) {
             mProgressBar.setVisibility(View.VISIBLE);
-            mUploadImage.setVisibility(View.GONE);
+            mUploadBtn.setVisibility(View.GONE);
 
 
             final StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
@@ -136,13 +127,13 @@ public class addMovie extends AppCompatActivity {
                     if (task.isSuccessful()) {
 
                         mProgressBar.setVisibility(View.GONE);
-                        mUploadImage.setVisibility(View.VISIBLE);
+                        mUploadBtn.setVisibility(View.VISIBLE);
                         Toast.makeText(addMovie.this,"Image Uploaded Successfully",Toast.LENGTH_SHORT).show();
 
 
                         String downloadUri = task.getResult().toString();
                         Upload submit = new Upload(
-                                mEditTextFileName.getText().toString().trim(),
+                                mEditTextMovieName.getText().toString().trim(),
                                 downloadUri);
 
                         String uploadId = mDatabaseRef.push().getKey();
