@@ -34,7 +34,7 @@
                 android:layout_below="@+id/thumbnail"
                 android:padding="8dp"
                 android:textColor="@color/gray8"
-                android:textSize="@dimen/movie_title"/>
+                android:textSize="12sp"/>
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

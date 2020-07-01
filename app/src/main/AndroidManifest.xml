@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.addSeries"></activity>
+        <activity android:name=".Activity.addSeries" />
         <activity android:name=".Activity.MovieOrSeriesActivity" />
         <activity android:name=".Activity.ProfileActivity" />
         <activity android:name=".Activity.SignUpActivity" />

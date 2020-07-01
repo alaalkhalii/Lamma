@@ -12,9 +12,11 @@ import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.example.lamma.Model.Upload;
@@ -31,18 +33,33 @@ import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class addMovie extends AppCompatActivity {
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private Button mChooseImage;
     private Button mUploadBtn;
     private EditText mEditTextMovieName;
+    private EditText mEditTextYear;
+    private EditText mEditTextLength;
+    private RatingBar mRatingBar;
+    private CheckBox mActionCheckB;
+    private CheckBox mHorrorCheckB;
+    private CheckBox mAdventureCheckB;
+    private CheckBox mComedyCheckB;
+    private CheckBox mThrillerCheckB;
+    private CheckBox mDramaCheckB;
+    private CheckBox mScienceCheckB;
+    private CheckBox mRomanticCheckB;
     private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Uri mImageUri;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
+    private int counter=0;
     String TAG;
 
     @Override
@@ -53,6 +70,17 @@ public class addMovie extends AppCompatActivity {
         mChooseImage=findViewById(R.id.UploadPosterBtn);
         mUploadBtn = findViewById(R.id.AddMovieBtn);
         mEditTextMovieName = findViewById(R.id.MovieNameEditTxt);
+        mEditTextYear = findViewById(R.id.YearEditTxt);
+        mEditTextLength = findViewById(R.id.LengthEditTxt);
+        mRatingBar = findViewById(R.id.ratingBar);
+        mActionCheckB = findViewById(R.id.ActionCB);
+        mHorrorCheckB = findViewById(R.id.HorrorCB);
+        mAdventureCheckB = findViewById(R.id.AdventureCB);
+        mComedyCheckB = findViewById(R.id.ComedyCB);
+        mThrillerCheckB = findViewById(R.id.ThrillerCB);
+        mDramaCheckB = findViewById(R.id.DramaCB);
+        mScienceCheckB = findViewById(R.id.ScienceFictionCB);
+        mRomanticCheckB = findViewById(R.id.RomanticCB);
         mImageView = findViewById(R.id.imageview);
         mProgressBar = findViewById(R.id.progress_bar);
 
@@ -105,6 +133,41 @@ public class addMovie extends AppCompatActivity {
     }
 
     private void reportFile() {
+
+        final List<String> mType = new ArrayList<>();
+
+        if(mActionCheckB.isChecked()){
+            mType.add("Action");
+            counter++;
+        }
+        if(mHorrorCheckB.isChecked()){
+            mType.add("Horror");
+            counter++;
+        }
+        if(mAdventureCheckB.isChecked()){
+            mType.add("Adventure");
+            counter++;
+        }
+        if(mComedyCheckB.isChecked()){
+            mType.add("Comedy");
+            counter++;
+        }
+        if(mThrillerCheckB.isChecked()){
+            mType.add("Thriller");
+            counter++;
+        }
+        if(mDramaCheckB.isChecked()){
+            mType.add("Drama");
+            counter++;
+        }
+        if(mScienceCheckB.isChecked()){
+            mType.add("Science");
+            counter++;
+        } if(mRomanticCheckB.isChecked()){
+            mType.add("Romantic");
+            counter++;
+        }
+
         if (mImageUri != null) {
             mProgressBar.setVisibility(View.VISIBLE);
             mUploadBtn.setVisibility(View.GONE);
@@ -128,13 +191,13 @@ public class addMovie extends AppCompatActivity {
 
                         mProgressBar.setVisibility(View.GONE);
                         mUploadBtn.setVisibility(View.VISIBLE);
-                        Toast.makeText(addMovie.this,"Image Uploaded Successfully",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(addMovie.this,"Movie Uploaded Successfully",Toast.LENGTH_SHORT).show();
 
 
                         String downloadUri = task.getResult().toString();
                         Upload submit = new Upload(
-                                mEditTextMovieName.getText().toString().trim(),
-                                downloadUri);
+                                mEditTextMovieName.getText().toString().trim(),mEditTextYear.getText().toString().trim(),mEditTextLength.getText().toString().trim(),
+                                (int) mRatingBar.getRating(),mType,downloadUri,"Movie");
 
                         String uploadId = mDatabaseRef.push().getKey();
                         mDatabaseRef.child(uploadId).setValue(submit);
